@@ -68,7 +68,7 @@ export class Panel extends Component {
     });
 
     if (this.state.individualFoldStates.length !== numFolds) {
-      const newFoldStates = new Array(numFolds).fill(false);
+      const newFoldStates = new Array(numFolds).fill(numFolds > 10); // If we keep all unfolded it is very laggy
       this.setState({
         individualFoldStates: this.props.addAction
           ? newFoldStates.map((e, i) => i !== numFolds - 1)
